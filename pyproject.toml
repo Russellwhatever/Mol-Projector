@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mol-projector"
+version = "0.1.0"
+description = "Convert 3D molecular structures to 2D MOL format with bond order determination"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.21",
+    "rdkit>=2023.03",
+    "tqdm>=4.60",
+]
+
+[project.optional-dependencies]
+viz = ["networkx>=2.8", "matplotlib>=3.5"]
+
+[project.scripts]
+mol-projector = "mol_projector.cli.projector:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

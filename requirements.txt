@@ -1,0 +1,6 @@
+numpy>=1.21
+rdkit>=2023.03
+tqdm>=4.60
+networkx>=2.8
+matplotlib>=3.5
+pytest>=7.0
