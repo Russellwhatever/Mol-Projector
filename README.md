@@ -95,7 +95,16 @@ pytest tests/ -v
 | Water (H2O) | ARC | `[H]O[H]` | O-H single bonds |
 | Formaldehyde (H2CO) | ARC | `[H]C([H])=O` | C=O double bond |
 
-详见 [docs/examples.md](docs/examples.md)（批量转换示例、管线过程追踪）。
+详见 [docs/examples.md](docs/examples.md)（批量转换、片段拆分示例）。
+
+## Fragment Decomposition
+
+```bash
+# Decompose molecule into ring-based fragments
+mol-fragment molecule.arc -f arc -o ./report
+```
+
+详见 [docs/examples.md](docs/examples.md) 片段拆分章节。
 
 ---
 
@@ -108,4 +117,4 @@ pytest tests/ -v
 | [docs/api.md](docs/api.md) | Python API — 模块接口、数据类型、工具函数 |
 | [docs/algorithm.md](docs/algorithm.md) | 算法说明 — 七步管线详解、调试可视化 |
 | [docs/formats.md](docs/formats.md) | 文件格式 — ARC/XYZ/MOL/SDF 详解、扩展新格式 |
-| [docs/examples.md](docs/examples.md) | 示例 — 典型分子转换案例、批量处理脚本 |
+| [docs/examples.md](docs/examples.md) | 示例 — 典型分子转换、片段拆分、批量处理脚本 |

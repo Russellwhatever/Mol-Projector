@@ -18,6 +18,7 @@ viz = ["networkx>=2.8", "matplotlib>=3.5"]
 
 [project.scripts]
 mol-projector = "mol_projector.cli.projector:main"
+mol-fragment = "mol_projector.fragment:fragment_cli"
 
 [tool.setuptools.packages.find]
 where = ["src"]

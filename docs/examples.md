@@ -73,6 +73,48 @@ print(struc.bond_matrix)
 
 ---
 
+## 分子片段拆分
+
+`mol-fragment` 命令将分子按环结构拆分为片段。
+
+```bash
+# 基本用法
+mol-fragment molecule.arc -f arc -o ./frag_report
+
+# 不合并双键连接（每个环/重原子独立成片段）
+mol-fragment molecule.arc --no-double-bond
+
+# 不包含周边重原子（输出纯片段）
+mol-fragment molecule.arc --no-surrounding
+```
+
+**Python API**：
+
+```python
+from mol_projector.fragment import report_fragments
+from mol_projector.io import read_structure
+from mol_projector.bond import get_bond_order
+
+struc = read_structure('molecule.arc', fmt='arc')[0]
+get_bond_order(struc)
+bond_info = report_fragments(struc, save_path='./report', bicyclic=True,
+                              double_bond=True, contain_surrounding_atom=False)
+```
+
+输出格式：
+
+```
+2              ← 片段数
+4              ← 片段 0 原子数
+1 3 4 5 2      ← 片段 0 原子序号（1-based）
+3              ← 片段 1 原子数
+6 7 8          ← 片段 1 原子序号
+```
+
+同时生成 `.bond` 文件记录片段内键连关系。
+
+---
+
 ## 批量转换
 
 ```python
